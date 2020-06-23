@@ -2,7 +2,6 @@ class NotifyMailer < ApplicationMailer
     default from: 'do_not_reply@nowcomputers.com'
 
     def self.send_email(row)
-        debugger
       emails = []
       emails.each do |email|
         new_product(email, row).deliver_now

@@ -15,6 +15,7 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+    @store = Store.find(params[:store_id])
   end
 
   # GET /products/1/edit
@@ -57,7 +58,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to store_products_path(@product.store), notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
