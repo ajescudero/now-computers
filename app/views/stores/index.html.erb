@@ -14,7 +14,10 @@
         <tr>
             <td><%= store.name %></td>
             <td><%= store.description %></td>
-            <td><%= link_to 'Show', store %></td>
+            <% if user_signed_in? %>
+                <td><%= link_to 'Show', store %></td>
+            <% end %>
+            <td><%= link_to 'Go', store_products_path(store.id) %></td>
         </tr>
         <% end %>
     </tbody>

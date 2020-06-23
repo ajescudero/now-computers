@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = Product.where(store_id: params[:store_id])
   end
 
   # GET /products/1
@@ -30,6 +30,7 @@ class ProductsController < ApplicationController
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
+        NotifyMailer.send_email(@product)
       else
         format.html { render :new }
         format.json { render json: @product.errors, status: :unprocessable_entity }
