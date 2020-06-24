@@ -1,27 +1,15 @@
-<h1>Stores</h1>
-
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th colspan="3"></th>
-        </tr>
-    </thead>
-
-    <tbody>
-        <% @stores.each do |store| %>
-        <tr>
-            <td><%= store.name %></td>
-            <% if user_signed_in? %>
-                <td><%= link_to 'Show', store %></td>
-            <% end %>
-            <td><%= link_to 'Go', store_products_path(store.id) %></td>
-        </tr>
-        <% end %>
-    </tbody>
-</table>
-
-<br>
-<% if user_signed_in? %>
+<div class="col-lg-5">
+  <h1>Stores</h1>
+  <% @stores.each do |store| %>
+    <div class="list-group">
+      <%= link_to store.name, store_products_path(store.id), class: "list-group-item list-group-item-action" %>
+      <% if user_signed_in? %>
+        <%= link_to 'Edit', store %>
+      <% end %>
+    </div>
+  <% end %>
+  <br>
+  <% if user_signed_in? %>
     <%= link_to 'New Store', new_store_path %>
-<% end %>
+  <% end %>
+</div>
