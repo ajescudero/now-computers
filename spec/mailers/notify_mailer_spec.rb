@@ -7,7 +7,7 @@ RSpec.describe NotifyMailer, type: :mailer do
 
         it "sends an email" do
             expect { described_class.send_email(@product) }
-            .to change { ActionMailer::Base.deliveries.count }.by(1)
+            .to change { ActionMailer::Base.deliveries.count }.by(User.count)
         end
     end
 end
