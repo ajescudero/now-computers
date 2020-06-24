@@ -2,7 +2,7 @@ class NotifyMailer < ApplicationMailer
     default from: 'do_not_reply@nowcomputers.com'
 
     def self.send_email(row)
-      emails = []
+      emails = User.select(:email)
       emails.each do |email|
         new_product(email, row).deliver_now
         # TODO: filter only customers. Enqueue through ActiveJob
@@ -11,7 +11,7 @@ class NotifyMailer < ApplicationMailer
       end
     end
 
-    def new_product(row)
+    def new_product(email, row)
       @item = row
       mail(to: email, subject: 'New product')
     end
