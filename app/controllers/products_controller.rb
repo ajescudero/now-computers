@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.where(store_id: params[:store_id])
+    @store = Store.find(params[:store_id])
   end
 
   # GET /products/1
