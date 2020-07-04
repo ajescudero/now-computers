@@ -36,10 +36,8 @@ gem 'bcrypt', '~> 3.1.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem 'bootstrap-datepicker-rails'
-
-gem 'bootstrap-sass', '~> 3.4.1'
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
+gem 'bootstrap'
 gem 'devise'
 gem 'simplecov', require: false, group: :test
 

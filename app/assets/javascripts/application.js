@@ -1,5 +1,4 @@
-//= require jquery
+//= require jquery3
 //= require jquery_ujs
-//= require bootstrap-sprockets
-//= require bootstrap-datepicker
-//= require_tree .
+//= require popper
+//= require bootstrap
